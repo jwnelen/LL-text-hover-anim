@@ -1,0 +1,79 @@
+@font-face {
+  font-family: "LL22-HvH-Pixel";
+  src: url("LL22-HvH-Pixel-Regular.woff2");
+}
+
+body {
+  --main-bg-color: #330012;
+  --main-text-color: #fd0;
+
+  background-color: var(--main-bg-color);
+  color: var(--main-text-color);
+  font-family: "LL22-HvH-Pixel", sans-serif;
+}
+
+.container {
+  max-width: calc(286px * 2 + 20px);
+  margin: 0 auto;
+  margin-top: 100px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 20px;
+}
+
+img {
+  width: 100%;
+  object-fit: cover;
+  height: auto;
+  /* Left side */
+}
+
+.left,
+.right {
+  transition-property: clip-path;
+  transition-duration: 0.3s;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.left {
+  clip-path: polygon(0 0, 100% 10%, 100% 90%, 0 100%);
+}
+
+.right {
+  clip-path: polygon(0 10%, 100% 0%, 100% 100%, 0 90%);
+}
+
+.left:hover,
+.right:hover {
+  clip-path: polygon(0 0, 100% 0%, 100% 100%, 0 100%);
+}
+
+.cell {
+  width: 286px;
+  height: 100%;
+  margin-bottom: 10px;
+}
+
+.text {
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 2.5em;
+  /* padding: 10px 0 10px 0; */
+}
+
+.text:hover > span {
+  transform: scaleY(1) !important;
+}
+
+.text > span {
+  transform: scaleY(0);
+  transition: transform 0.3s;
+}
+
+.img {
+  width: 100%;
+  height: 286px;
+}
